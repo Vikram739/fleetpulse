@@ -95,7 +95,7 @@ fleetpulse/
 
 ## Demo
 
-Live: [fleetpulse.vercel.app](#) *(add link once deployed)*
+Live: [fleetpulse.vercel.app](#) *(will add link once deployed)*
 
 ## Roadmap
 
