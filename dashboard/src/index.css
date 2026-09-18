@@ -1,0 +1,265 @@
+:root {
+  color-scheme: light dark;
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #0f1115;
+  color: #e6e8eb;
+}
+
+.app-shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1.25rem;
+  border-bottom: 1px solid #2a2d34;
+}
+
+.app-header h1 {
+  font-size: 1.25rem;
+  margin: 0;
+}
+
+.fleet-count {
+  color: #9aa0aa;
+  font-size: 0.9rem;
+}
+
+.connection-banner {
+  background: #7a4b00;
+  color: #fff3e0;
+  text-align: center;
+  padding: 0.4rem;
+  font-size: 0.85rem;
+}
+
+.app-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 1rem;
+  padding: 1rem;
+  flex: 1;
+  min-height: 0;
+}
+
+.map-panel {
+  grid-column: 1;
+  grid-row: 1 / span 2;
+  min-height: 420px;
+}
+
+.list-panel {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.rollout-panel {
+  grid-column: 2;
+  grid-row: 2;
+}
+
+.panel {
+  background: #1a1d24;
+  border: 1px solid #2a2d34;
+  border-radius: 8px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.panel h2 {
+  margin-top: 0;
+  font-size: 1rem;
+  color: #cfd3da;
+}
+
+.fleet-map {
+  flex: 1;
+  min-height: 380px;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.vehicle-marker-ok {
+  background: #3ddc84;
+  border-radius: 50%;
+  border: 1px solid #1a1d24;
+}
+
+.vehicle-marker-fault {
+  background: #ff5252;
+  border-radius: 50%;
+  border: 2px solid #1a1d24;
+}
+
+.vehicle-list-scroll {
+  overflow-y: auto;
+  max-height: 320px;
+}
+
+.vehicle-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+}
+
+.vehicle-table th,
+.vehicle-table td {
+  text-align: left;
+  padding: 0.35rem 0.5rem;
+  border-bottom: 1px solid #2a2d34;
+}
+
+.row-fault {
+  background: rgba(255, 82, 82, 0.08);
+}
+
+.fault-button {
+  background: #ff5252;
+  color: #1a1d24;
+  border: none;
+  border-radius: 4px;
+  padding: 0.2rem 0.5rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.no-fault {
+  color: #6c7280;
+}
+
+.empty-message {
+  color: #9aa0aa;
+  font-style: italic;
+}
+
+.error-message {
+  color: #ff8a80;
+}
+
+.rollout-select-label {
+  font-size: 0.85rem;
+  color: #cfd3da;
+}
+
+.rollout-detail {
+  margin-top: 0.75rem;
+}
+
+.rollout-status-badge {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  margin-bottom: 0.5rem;
+  background: #2a2d34;
+}
+
+.status-in_progress {
+  background: #1f4b8c;
+}
+
+.status-completed {
+  background: #1f7a3d;
+}
+
+.status-halted,
+.status-rolled_back {
+  background: #8c1f1f;
+}
+
+.progress-bar-track {
+  background: #2a2d34;
+  border-radius: 6px;
+  height: 10px;
+  overflow: hidden;
+}
+
+.progress-bar-fill {
+  background: #3ddc84;
+  height: 100%;
+  transition: width 0.3s ease;
+}
+
+.rollout-counts {
+  list-style: none;
+  padding: 0;
+  margin: 0.5rem 0 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.25rem;
+  font-size: 0.85rem;
+}
+
+.fault-panel-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.fault-panel {
+  background: #1a1d24;
+  border: 1px solid #2a2d34;
+  border-radius: 8px;
+  padding: 1.25rem;
+  max-width: 420px;
+  width: 100%;
+}
+
+.fault-panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.close-button {
+  background: none;
+  border: none;
+  color: #cfd3da;
+  font-size: 1.25rem;
+  cursor: pointer;
+}
+
+.next-step {
+  color: #cfd3da;
+}
+
+.fallback-note {
+  font-size: 0.8rem;
+  color: #9aa0aa;
+  font-style: italic;
+}
+
+@media (max-width: 900px) {
+  .app-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  }
+
+  .map-panel,
+  .list-panel,
+  .rollout-panel {
+    grid-column: 1;
+    grid-row: auto;
+  }
+}
